@@ -9,34 +9,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Sessão</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-    
-   <form action="">
-        <table>
-            <tr>
-                <td>Nome:</td>
-                <td><input type="text" name="nome" id=""></td>
-            </tr>
+    <div class="container">
+        <form action="">
+            <table>
+                <tr>
+                    <td>Nome:</td>
+                    <td><input type="text" name="nome" id=""></td>
+                </tr>
 
-            <tr>
-                <td>Idade:</td>
-                <td><input type="text" name="idade" id=""></td>
-            </tr>
+                <tr>
+                    <td>Idade:</td>
+                    <td><input type="text" name="idade" id=""></td>
+                </tr>
 
-            <tr>
-                <td>Telefone:</td>
-                <td><input type="text" name="telefone" id=""></td>
-            </tr>
+                <tr>
+                    <td>Telefone:</td>
+                    <td><input type="text" name="telefone" id=""></td>
+                </tr>
 
-            <tr>
-                <td><input type="submit" name="enviar" value="enviar"></td>
-            </tr>
+                <tr>
+                    <td><input type="submit" name="enviar" value="enviar" class="btn btn-primary"></td>
+                </tr>
 
-        </table>
-
-
-   </form>
-
+            </table>
+        </form>
+   </div>
 </body>
 </html>
