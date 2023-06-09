@@ -1,3 +1,26 @@
+<?php
+    if(count($_POST) && isset($_POST['op'])){
+        $resultado = 0;
+
+        switch($_POST["op"]){
+            case "som" :
+                $resultado = $_POST['n1'] + $_POST['n2'];
+                break;
+            case "sub" :
+                $resultado = $_POST['n1'] - $_POST['n2'];
+                break;
+            case "div" :
+                $resultado = $_POST['n1'] / $_POST['n2'];
+                break;
+            case "mul" :
+                $resultado = $_POST['n1'] * $_POST['n2'];
+                break;
+        }
+
+    }
+
+?>
+
  <!DOCTYPE html>
   <html>
     <head>
@@ -23,16 +46,31 @@
                 <div class="card-stacked">
                     <div class="card-content">
                         <div class="row">
-                            <form action="" method="post">
+                            <form action="calculadora.php" method="post">
                                 <div class="input-field col s6">
                                     <input type="number" id="n1" name="n1">
+                                    <label for="n1">Operando 1</label>
                                 </div>
 
+                                <div class="input-field col s6">
+                                    <input type="number" id="n2" name="n2">
+                                    <label for="n2">Operando 1</label>
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <button type="submit" name="op" value="som" class="btn col s2 amber lighten-1">Somar</button>
+
+                                    <button type="submit" name="op" value="sub" class="btn col s2 offset-s1 light-blue darken-3">Subtrair</button>
+
+                                    <button type="submit" name="op" value="mul" class="btn col s2 offset-s1 green darken-3">Multiplicar</button>
+
+                                    <button type="submit" name="op" value="div" class="btn col s2 offset-s1 red darken">Dividir</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a href="#">Resultado: <?php echo $resultado; ?> </a>
                     </div>
                 </div>
             </div>
