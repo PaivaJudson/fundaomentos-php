@@ -13,7 +13,9 @@
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <br>
+        <br>
+        <form action="" method="POST">
             <table>
                 <tr>
                     <td>Nome:</td>
@@ -35,7 +37,27 @@
                 </tr>
 
             </table>
+            <br>
+            <br>
         </form>
+
+        <?php
+            if(count($_POST)){
+                $_SESSION['cadastro'][] = $_POST;
+            }
+
+            if($_SESSION['cadastro']){
+                echo '<table class="table">';
+                    foreach($_SESSION['cadastro'] as $pessoa){
+                        echo "<tr>";
+                        echo "<td>". $pessoa['nome']. "</td>";
+                        echo "<td>". $pessoa['idade']. "</td>";
+                        echo "<td>". $pessoa['telefone']. "</td>";
+                        echo "</tr>";
+                    }
+                echo '</table>';
+            }
+        ?>
    </div>
 </body>
 </html>
