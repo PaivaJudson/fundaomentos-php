@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -43,7 +47,10 @@
 
   <main class="container">
     <div class="bg-body-tertiary p-5 rounded">
-
+      <?php
+        var_dump($_SESSION['cadastro']);
+      exit;
+      ?>
     </div>
   </main>
 
