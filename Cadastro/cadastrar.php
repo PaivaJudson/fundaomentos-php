@@ -50,11 +50,11 @@ require_once('provincias.php');
   <main class="container">
     <div class="bg-body-tertiary p-5 rounded">
 
-        <form method="$_POST" action="salvar.php">
+        <form method="$_GET" action="salvar.php">
 
           <div class="form-group">
             <label for="nome" class="form-label">Nome: </label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome da Pessoa">
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome da Pessoa" value="">
           </div>
 
           <div class="row">
@@ -90,7 +90,6 @@ require_once('provincias.php');
                   echo "<option value='$i'>$uf</option>";
                 }
                 ?>
-
               </select>
             </div>
 
@@ -98,8 +97,7 @@ require_once('provincias.php');
           </div>
 
           <br>
-          <br>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
           <button type="reset" class="btn btn-warning">Limpar</button>
         </form>
 

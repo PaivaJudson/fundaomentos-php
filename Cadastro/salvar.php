@@ -1,7 +1,11 @@
 <?php
 
 session_start();
-var_dump($_POST);
-exit;
-if (count($_POST)) {
+
+if (count($_GET)) {
+
+    $_SESSION['cadastro'][] = $_GET;
+
 }
+
+header('location: listar.php');
