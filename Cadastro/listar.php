@@ -5,8 +5,6 @@ $pessoas = [];
 if (isset($_SESSION['cadastro'])) {
   $pessoas = $_SESSION['cadastro'];
 }
-
-
 ?>
 
 <!doctype html>
@@ -24,7 +22,8 @@ if (isset($_SESSION['cadastro'])) {
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
 
-  <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="https://getbootstrap.com/docs/5.3/examples/navbar-static/navbar-static.css" rel="stylesheet">
@@ -67,6 +66,28 @@ if (isset($_SESSION['cadastro'])) {
             <th scope="col">Ações</th>
           </tr>
         </thead>
+
+        <tbody>
+          <?php
+          foreach ($pessoas as $i => $p) {
+
+            echo "<tr>";
+            echo "<th scope='row'> $i </th>";
+            echo '<td>' . $p['nome'] . '</td>';
+            echo '<td>' . $p['idade'] . '</td>';
+            echo '<td>' . $p['telefone'] . '</td>';
+            echo '<td>' . $p['endereco'] . '</td>';
+            echo '<td>' . $p['cidade'] . '</td>';
+            echo '<td>' . $p['estado'] . '</td>';
+            echo '<td>';
+            echo '<a class="btn btn-danger" href="#"><i class="fa fa-trash fa-lg"></i></a> ';
+            echo '<a class="btn btn-warning" href="#"><i class="fa fa-pencil fa-lg"></i></a> ';
+            echo '</td>';
+            echo "</tr>";
+          }
+
+          ?>
+        </tbody>
       </table>
 
     </div>
