@@ -1,5 +1,12 @@
 <?php
-session_start();
+  session_start();
+
+  $pessoas = [];
+  if(isset($_SESSION['cadastro'])){
+    $pessoas = $_SESSION['cadastro'];
+  }
+
+
 ?>
 
 <!doctype html>
