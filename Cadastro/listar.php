@@ -1,10 +1,10 @@
 <?php
-  session_start();
+session_start();
 
-  $pessoas = [];
-  if(isset($_SESSION['cadastro'])){
-    $pessoas = $_SESSION['cadastro'];
-  }
+$pessoas = [];
+if (isset($_SESSION['cadastro'])) {
+  $pessoas = $_SESSION['cadastro'];
+}
 
 
 ?>
@@ -54,10 +54,21 @@
 
   <main class="container">
     <div class="bg-body-tertiary p-5 rounded">
-      <?php
-        var_dump($_SESSION['cadastro']);
-      exit;
-      ?>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+      </table>
+
     </div>
   </main>
 
