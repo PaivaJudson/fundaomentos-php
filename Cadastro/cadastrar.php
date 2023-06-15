@@ -4,8 +4,9 @@ require_once('provincias.php');
 
 $result = '';
 
-if (count($_GET)) {
+if (count($_GET) && $_GET['id'] !="") {
   $result = $_SESSION['cadastro'][$_GET['id']];
+  $uf_sel = $_GET['id'];
 }
 
 ?>
@@ -57,6 +58,7 @@ if (count($_GET)) {
     <div class="bg-body-tertiary p-5 rounded">
 
       <form method="$_GET" action="salvar.php">
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 
         <div class="form-group">
           <label for="nome" class="form-label">Nome: </label>
@@ -93,7 +95,12 @@ if (count($_GET)) {
               <?php
               $provincias = getLista();
               foreach ($provincias as $i => $uf) {
-                echo "<option value='$i'>$uf</option>";
+
+                if ($i == $uf_sel) {
+                  echo "<option value='$i' selected>$uf</option>";
+                } else {
+                  echo "<option value='$i'>$uf</option>";
+                }
               }
               ?>
             </select>

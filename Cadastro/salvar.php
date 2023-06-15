@@ -2,10 +2,10 @@
 
 session_start();
 
-if (count($_GET)) {
-
+if(isset($_GET['id'])){
+    $_SESSION['cadastro']['id'] = $_GET;
+} else if (count($_GET)) {
     $_SESSION['cadastro'][] = $_GET;
-
 }
 
 header('location: listar.php');
