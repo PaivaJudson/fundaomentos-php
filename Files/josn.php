@@ -1,6 +1,8 @@
 <?php
 
-$pessoa = ['nome'=>'Judson Paiva', 'idade'=>29, 'cidade'=>"Luanda Angola", 'lista'=>[1, 2, 3, 4, 5, 6]];
+$pessoa = ['nome'=>'Judson Paiva', 'idade'=>29, 'cidade'=>"Luanda Angola", 
+            
+        'lista'=>[1, 2, 3, 4, 5, 6, [10, 11, 12, 13]]];
 
 $objectoJSON = json_encode($pessoa);
 echo "<pre>";
