@@ -1,5 +1,12 @@
 <?php
+session_start();
 require_once('provincias.php');
+
+$result = '';
+
+if (count($_GET)) {
+  $result = $_SESSION['cadastro'][$_GET['id']];
+}
 
 ?>
 
@@ -27,7 +34,6 @@ require_once('provincias.php');
 
 <body>
 
-
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Cadastro de Pessoas</a>
@@ -50,56 +56,54 @@ require_once('provincias.php');
   <main class="container">
     <div class="bg-body-tertiary p-5 rounded">
 
-        <form method="$_GET" action="salvar.php">
+      <form method="$_GET" action="salvar.php">
 
-          <div class="form-group">
-            <label for="nome" class="form-label">Nome: </label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome da Pessoa" value="">
+        <div class="form-group">
+          <label for="nome" class="form-label">Nome: </label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Informe o nome da Pessoa" value="<?php echo $result['nome'] ?>">
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="idade" class="form-label">Idade: </label>
+            <input type="number" class="form-control" id="idade" name="idade" placeholder="Informe a idade da Pessoa" value="<?php echo $result['idade'] ?>">
           </div>
 
-          <div class="row">
-            <div class="col-md-4">
-              <label for="idade" class="form-label">Idade: </label>
-              <input type="number" class="form-control" id="idade" name="idade" placeholder="Informe a idade da Pessoa">
-            </div>
-
-            <div class="col-md-8">
-              <label for="idade" class="form-label">Telemovel: </label>
-              <input type="text" class="form-control" id="telemovel" name="telemovel" placeholder="Informe o Telemovel da Pessoa">
-            </div>
-
+          <div class="col-md-8">
+            <label for="idade" class="form-label">Telemovel: </label>
+            <input type="text" class="form-control" id="telemovel" name="telemovel" placeholder="Informe o Telemovel da Pessoa" value="<?php echo $result['telemovel'] ?>">
           </div>
 
-          <div class="form-group">
-            <label for="endereco" class="form-label">Endereco: </label>
-            <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Informe o endereco da Pessoa">
+        </div>
+
+        <div class="form-group">
+          <label for="endereco" class="form-label">Endereco: </label>
+          <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Informe o endereco da Pessoa" value="<?php echo $result['endereco'] ?>">
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="idade" class="form-label">Cidade: </label>
+            <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe a Cidade" value="<?php echo $result['cidade'] ?>">
           </div>
 
-          <div class="row">
-            <div class="col-md-4">
-              <label for="idade" class="form-label">Cidade: </label>
-              <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe a Cidade">
-            </div>
-
-            <div class="col-md-4">
-              <label for="provincia" class="form-label">Provincia </label>
-              <select class="form-select" id="estado" name="estado">
-                <?php
-                $provincias = getLista();
-                foreach ($provincias as $i => $uf) {
-                  echo "<option value='$i'>$uf</option>";
-                }
-                ?>
-              </select>
-            </div>
-
-
+          <div class="col-md-4">
+            <label for="provincia" class="form-label">Provincia </label>
+            <select class="form-select" id="estado" name="estado">
+              <?php
+              $provincias = getLista();
+              foreach ($provincias as $i => $uf) {
+                echo "<option value='$i'>$uf</option>";
+              }
+              ?>
+            </select>
           </div>
+        </div>
 
-          <br>
-          <button type="submit" class="btn btn-primary">Cadastrar</button>
-          <button type="reset" class="btn btn-warning">Limpar</button>
-        </form>
+        <br>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="reset" class="btn btn-warning">Limpar</button>
+      </form>
 
     </div>
   </main>

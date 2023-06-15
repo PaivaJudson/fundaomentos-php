@@ -80,12 +80,11 @@ if (isset($_SESSION['cadastro'])) {
             echo '<td>' . $p['cidade'] . '</td>';
             echo '<td>' . $p['estado'] . '</td>';
             echo '<td>';
-            echo '<a class="btn btn-danger" href="#"><i class="fa fa-trash fa-lg"></i></a> ';
-            echo '<a class="btn btn-warning" href="#"><i class="fa fa-pencil fa-lg"></i></a> ';
+            echo '<a class="btn btn-danger" href="apagar.php?id='.$i.'"><i class="fa fa-trash fa-lg"></i></a> ';
+            echo '<a class="btn btn-warning" href="cadastrar.php?id='.$i.'"><i class="fa fa-pencil fa-lg"></i></a> ';
             echo '</td>';
             echo "</tr>";
           }
-
           ?>
         </tbody>
       </table>
