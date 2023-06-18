@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fotografias - Fotos</title>
+    <title>Fotografias - Postagem</title>
 
 </head>
 
@@ -18,9 +18,9 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Fotolog</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="postagem.php">Nova Postagem</a></li>
+                <li class="active"><a href="postagem.php">Nova Postagem</a></li>
                 <li><a href="usuarios.php">Usuários</a></li>
-                <li class="active"><a href="fotolog.php">Fotografias</a></li>
+                <li><a href="fotolog.php">Fotografias</a></li>
             </ul>
         </div>
     </nav>
