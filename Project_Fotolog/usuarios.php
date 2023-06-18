@@ -1,11 +1,11 @@
 <?php
-$file_lista_usuarios='lista_usuarios.json';
+$file_lista_usuarios = 'lista_usuarios.json';
 
 if (count($_POST)) {
     $usuario = $_POST;
     $lista_usuarios = [];
 
-    if(file_exists($file_lista_usuarios)){
+    if (file_exists($file_lista_usuarios)) {
         $lista_usuarios = json_decode(file_get_contents($file_lista_usuarios), true);
     }
     $lista_usuarios[] = $usuario;
@@ -18,12 +18,11 @@ if (count($_POST)) {
         echo "Ocorreu um erro ao gravar o arquivo: " . $error['message'];
     }
 
-    
     // file_put_contents($file_lista_usuarios, $jsonString);
-    echo "<pre>";
-    var_dump($error);
-    exit;
-    
+    // echo "<pre>";
+    // var_dump($error);
+    // exit;
+
 }
 
 ?>
@@ -65,6 +64,25 @@ if (count($_POST)) {
 
                         <div class="card-content">
                             <span class="card-title">Cadastre um novo usuário</span>
+
+                            <?php
+                                if (count($lista_usuarios)) {
+                                    echo '<ul class="collection">';
+                                    foreach ($lista_usuarios as $u) {
+                                        echo '<li class="collection-item avatar">'; 
+                                        echo '  <i class="material-icons'; 
+                                        echo 'circle">account_circle</i>';
+                                        echo '  <span class="title">' . $u['nome'] . '</span>';
+                                        echo '  <p> ' . $u['e_mail'] . '<br></p>';
+                                        echo '<a href="#!" class="secondary-content"><i';
+                                        echo 'class="material-icons">grade</i></a>';
+                                        echo '</li>';
+                                    }
+                                    echo '</ul>';
+                                }
+
+                            ?>
+
                         </div>
 
                         <div class="card-action">
@@ -72,7 +90,7 @@ if (count($_POST)) {
                             <form action="" method="post" class="container">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input placeholder="Informe o Nome e o Apelido" id="first_name" type="text" name="first_name" class="validate">
+                                        <input placeholder="Informe o Nome" id="first_name" type="text" name="first_name" class="validate">
                                         <label for="first_name">Nome</label>
                                     </div>
                                     <div class="input-field col s6">
