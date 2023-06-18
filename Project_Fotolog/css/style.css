@@ -1,9 +1,19 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
+
+.margem-top {
+  margin-top: 50px;
+}
+
+
+.x {
+  border: 1px solid black;
+  outline: 1px solid red;
+}

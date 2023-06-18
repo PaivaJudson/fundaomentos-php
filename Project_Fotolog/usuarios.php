@@ -1,22 +1,41 @@
+<?php
+$file_lista_usuarios='lista_usuarios.json';
+
+if (count($_POST)) {
+    $usuario = $_POST;
+    $lista_usuarios = [];
+
+    if(file_exists($file_lista_usuarios)){
+        $lista_usuarios = json_decode(file_get_contents($file_lista_usuarios), true);
+    }
+    $lista_usuarios[] = $usuario;
+
+    //var_dump($usuario); exit;
+    file_put_contents($file_lista_usuarios, json_encode($usuario));
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!--Import Google Icon Font-->
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
+
     <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
-    <link rel="stylesheet" href="css/style.css">
-    <!--Let browser know website is optimized for mobile-->
+
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fotografias - Usuários</title>
+
 
 </head>
 
 <body>
     <nav class="cyan">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Fotolog</a>
+            <a href="#" class="brand-logo" style="margin-left: 20px;">Fotolog</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="postagem.php">Nova Postagem</a></li>
                 <li class="active"><a href="usuarios.php">Usuários</a></li>
@@ -26,20 +45,52 @@
     </nav>
 
     <!-- Main  -->
-
     <main>
         <div class="container">
-            <h1>Fotografias</h1>
+            <div class="margem-top row" style="margin-top: 50px;">
+                <div class="col s8 offset-2">
+                    <div class="card grey lighten-5">
+
+                        <div class="card-content">
+                            <span class="card-title">Cadastre um novo usuário</span>
+                        </div>
+
+                        <div class="card-action">
+
+                            <form action="" method="post" class="container">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Informe o Nome e o Apelido" id="first_name" type="text" name="first_name" class="validate">
+                                        <label for="first_name">Nome</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Informe o E-mail" id="e_mail" type="text" name="e_mail" class="validate">
+                                        <label for="e_mail">E-mail</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <button class="btn waves-effect waves-light" type="submit">Cadastrar
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-
-
 
     <!-- Footer  -->
     <footer class="page-footer cyan grey-text darken-2-text">
         <div class="footer-copyright">
             <div class="container">
-                © 2023 Copyright Text
+                Copyright © 2023 Todos os Direitos Reservados
                 <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/judson-paiva/" target="_blank">Judson Paiva</a>
             </div>
         </div>

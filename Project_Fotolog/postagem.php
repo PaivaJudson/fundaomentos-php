@@ -16,7 +16,7 @@
 <body>
     <nav class="cyan">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Fotolog</a>
+            <a href="#" class="brand-logo" style="margin-left: 20px;">Fotolog</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li class="active"><a href="postagem.php">Nova Postagem</a></li>
                 <li><a href="usuarios.php">Usuários</a></li>
@@ -39,7 +39,7 @@
     <footer class="page-footer cyan grey-text darken-2-text">
         <div class="footer-copyright">
             <div class="container">
-                © 2023 Copyright Text
+                Copyright © 2023 Todos os Direitos Reservados
                 <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/judson-paiva/" target="_blank">Judson Paiva</a>
             </div>
         </div>
