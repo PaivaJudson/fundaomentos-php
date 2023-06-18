@@ -10,8 +10,20 @@ if (count($_POST)) {
     }
     $lista_usuarios[] = $usuario;
 
-    //var_dump($usuario); exit;
-    file_put_contents($file_lista_usuarios, json_encode($usuario));
+    $jsonString = json_encode($lista_usuarios);
+
+    $result = file_put_contents($file_lista_usuarios, $jsonString);
+    if ($result === false) {
+        $error = error_get_last();
+        echo "Ocorreu um erro ao gravar o arquivo: " . $error['message'];
+    }
+
+    
+    // file_put_contents($file_lista_usuarios, $jsonString);
+    echo "<pre>";
+    var_dump($error);
+    exit;
+    
 }
 
 ?>
