@@ -31,6 +31,7 @@ class CarrinhoDeCompras{
         'Boné' => 3
     ];
 
+
     public function adicionarProduto($produto, $quantidade){
 
         if(!isset($this->estoque[$produto])){
@@ -45,6 +46,7 @@ class CarrinhoDeCompras{
         return "<p>Produto adicionado ao carrinho: ". $produto . " quantidade: ". $quantidade ." </p>";
     }
 
+    
     public function exibirEstoque(){
         $message = '<p>Estoque Disponível </p>';
         echo '<p>Estoque Disponível </p>';
