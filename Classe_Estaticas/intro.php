@@ -10,5 +10,6 @@ class Exemplo{
 }
 
 
+
 Exemplo::incrementar();
 Exemplo::incrementar();
