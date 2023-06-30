@@ -46,7 +46,7 @@ class CarrinhoDeCompras{
         return "<p>Produto adicionado ao carrinho: ". $produto . " quantidade: ". $quantidade ." </p>";
     }
 
-    
+
     public function exibirEstoque(){
         $message = '<p>Estoque Disponível </p>';
         echo '<p>Estoque Disponível </p>';
@@ -66,8 +66,7 @@ try{
 
     echo $sessao_compra->adicionarProduto("Camiseta", 4);
     echo $sessao_compra->exibirEstoque();
-
-
+    
 }catch(EstoqueInsuficienteException $e){
     echo "Erro de estoque: " . $e->getMessage() . "<br>";
     echo "Produto com estoque insuficiente: " . $e->getProduto() . "<br>";
