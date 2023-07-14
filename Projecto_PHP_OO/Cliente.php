@@ -1,8 +1,8 @@
 <?php
 
-include_once ("Pessoa.php");
+require_once 'Pessoa.php';
 
-class Cliente extends Pessoa {
+class Cliente extends Pessoa{
 
     protected $limiteDeCredito;
 
