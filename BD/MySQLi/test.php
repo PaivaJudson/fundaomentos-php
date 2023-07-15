@@ -106,11 +106,55 @@ function consultar_com_fetch_assoc($mysqli)
 
 
 function num_linhas($mysqli){
+    
+    $sql = "SELECT * FROM aluno";
+    $result = $mysqli->query($sql);
 
-    $result = $mysqli->query();
     return $result->num_rows;
 }
 
 
+function inserir_usando_bind_param($mysqli){
 
-consultar_com_fetch_assoc($mysqli);
+    $nome = "Judson Paiva";
+    $idade = 29;
+    $cidade = "Luanda";
+
+
+    $sql = "INSERT INTO aluno(nome, idade, cidade) VALUES(?, ?, ?)";
+    $statement = $mysqli->prepare($sql);
+
+    if(isset($statement)){
+        $statement->bind_param('sis', $nome, $idade, $cidade);
+        $statement->execute();
+
+        $statement->close();
+    }
+
+}
+
+
+function apagar($mysqli){
+    
+    $idaluno = 80;
+    $sql = "DELETE FROM aluno WHERE idaluno=?";
+    $stmt = $mysqli->prepare($sql);
+
+    if(isset($stmt)){
+
+        $stmt->bind_param("i", $idaluno);
+        $stmt->execute();
+
+        $stmt->close();
+
+    }else{
+        echo "<p>Erro ao eliminar</p>";
+    }
+
+
+}
+
+apagar($mysqli);
+
+// inserir_usando_bind_param($mysqli);
+// echo "<br>". num_linhas($mysqli);
