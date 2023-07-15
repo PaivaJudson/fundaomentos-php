@@ -82,7 +82,6 @@ function consultar_com_fetch_row($mysqli)
 
 function consultar_com_fetch_assoc($mysqli)
 {
-
     $sql = "SELECT * FROM aluno";
     $result = $mysqli->query($sql);
     if (isset($result)) {
@@ -120,7 +119,6 @@ function inserir_usando_bind_param($mysqli){
     $idade = 29;
     $cidade = "Luanda";
 
-
     $sql = "INSERT INTO aluno(nome, idade, cidade) VALUES(?, ?, ?)";
     $statement = $mysqli->prepare($sql);
 
@@ -130,12 +128,11 @@ function inserir_usando_bind_param($mysqli){
 
         $statement->close();
     }
-
 }
 
 
 function apagar($mysqli){
-    
+
     $idaluno = 80;
     $sql = "DELETE FROM aluno WHERE idaluno=?";
     $stmt = $mysqli->prepare($sql);
@@ -150,11 +147,38 @@ function apagar($mysqli){
     }else{
         echo "<p>Erro ao eliminar</p>";
     }
-
-
 }
 
-apagar($mysqli);
+function consultar_com_bind($mysqli){
+    
+    $nome   = '';
+    $idade  = ''; 
+    $cidade = "";
+    $str = "%Fortaleza";
+    
+    $sql = "SELECT nome, idade, cidade FROM aluno WHERE cidade LIKE ?";
+    $statement = $mysqli->prepare($sql);
 
+    if (isset($statement)) {
+        $statement->bind_param("s", $str);
+        $statement->execute();
+
+        $statement->bind_result($nome, $idade, $cidade);
+        // $res = $statement->store_result();
+
+        while ($statement->fetch()) {
+            echo "<p>Nome: $nome | Idade: $idade | Cidade: $cidade </p>";
+        }
+
+        if($statement->num_rows === 0){
+            echo "<p>Sem resultados com o Bind</p>";
+        }
+
+        $statement->close();
+    }
+}
+
+
+consultar_com_bind($mysqli);
 // inserir_usando_bind_param($mysqli);
 // echo "<br>". num_linhas($mysqli);
