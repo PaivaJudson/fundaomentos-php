@@ -10,9 +10,9 @@ $mysqli = '';
 try {
     $mysqli = new mysqli($host, $user, $password, $db);
     if (!$mysqli->connect_errno) {
-        echo "Conexao activa";
+        echo "Conexao activa <br />";
     } else {
-        echo "Erro na conexao";
+        echo "Erro na conexao <br />";
     }
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -45,6 +45,7 @@ function echoTableHead()
     echo "<table border='1'>";
     echo "<tr>";
     echo "<td>ID Aluno </td>";
+    echo "<td>Nome </td>";
     echo "<td>Idade </td>";
     echo "<td>Cidade </td>";
     echo "</tr>";
@@ -57,7 +58,7 @@ function echoTableFoot()
     echo "<br>";
 }
 
-function consultarCom_fetch_row($mysqli)
+function consultar_com_fetch_row($mysqli)
 {
 
     $sql = "SELECT * FROM aluno";
@@ -79,24 +80,37 @@ function consultarCom_fetch_row($mysqli)
     }
 }
 
-function consultarCom_fetch_assoc($mysqli)
+function consultar_com_fetch_assoc($mysqli)
 {
 
     $sql = "SELECT * FROM aluno";
     $result = $mysqli->query($sql);
     if (isset($result)) {
+
         echoTableHead();
 
         $r = $result->fetch_assoc();
+     
         while ($r) {
             echo "<tr>";
-            echo "<td>" . $r[0] . "</td>";
-            echo "<td>" . $r[1] . "</td>";
-            echo "<td>" . $r[2] . "</td>";
-            echo "<td>" . $r[3] . "</td>";
+            echo "<td>" . $r['idaluno'] . "</td>";
+            echo "<td>" . $r['nome'] . "</td>";
+            echo "<td>" . $r['idade'] . "</td>";
+            echo "<td>" . $r['cidade'] . "</td>";
             echo "</tr>";
-            $r = $result->fetch_row();
+            $r = $result->fetch_assoc();
         }
         echoTableFoot();
     }
 }
+
+
+function num_linhas($mysqli){
+
+    $result = $mysqli->query();
+    return $result->num_rows;
+}
+
+
+
+consultar_com_fetch_assoc($mysqli);
